@@ -1,10 +1,12 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import Button from '../Button/Button'
 import './Settings.css'
 
 export default function Settings() {
     const [language, setLanguage] = useState('English');
-    const [theme, setTheme] = useState('Night');
+    const [theme, setTheme] = useState(() => {
+        return localStorage.getItem('theme') || 'Night';
+    });
     const [notifications, setNotification] = useState('Yes');
 
     const toggleLanguage = () => {
@@ -20,56 +22,11 @@ export default function Settings() {
     };
 
     useEffect(() => {
-        
-        if (theme === 'Day') {
-            document.body.classList.remove('night-theme');
-            document.body.classList.add('day-theme');
-    
-            const header = document.querySelector('header');
-            const footer = document.querySelector('footer');
-            const input = document.querySelector('.search-input')
-    
-            if (header) {
-                header.classList.remove('night-theme');
-                header.classList.add('day-theme');
-            }
-    
-            if (footer) {
-                footer.classList.remove('night-theme');
-                footer.classList.add('day-theme');
-            }
-
-            if (input) {
-                input.classList.remove('night-theme');
-                input.classList.add('day-theme');
-            }
-    
-        } else {
-            document.body.classList.remove('day-theme');
-            document.body.classList.add('night-theme');
-    
-            const header = document.querySelector('header');
-            const footer = document.querySelector('footer');
-            const input = document.querySelector('.search-input');
-    
-            if (header) {
-                header.classList.remove('day-theme');
-                header.classList.add('night-theme');
-            }
-    
-            if (footer) {
-                footer.classList.remove('day-theme');
-                footer.classList.add('night-theme');
-            }
-
-            if (input) {
-                input.classList.remove('day-theme');
-                input.classList.add('night-theme');
-            }
-        }
-    }, [theme]);
-    
-
+        document.body.classList.toggle('day-theme', theme === 'Day');
+        document.body.classList.toggle('night-theme', theme === 'Night');
+        localStorage.setItem('theme', theme);
+      }, [theme]);
+      
     return (
         <div className='settings'>
             <div className='row-settings'>
@@ -104,6 +61,5 @@ export default function Settings() {
             </div>
         </div>
     );
-    
 }
 
