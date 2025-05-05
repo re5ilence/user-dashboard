@@ -1,0 +1,33 @@
+.achievements table {
+    border-collapse: collapse;
+    box-shadow: 0 0 5px #be8268;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.achievements th,
+.achievements td {
+    padding: 10px 20px;
+    text-align: center;
+    width: 50%;
+    border-bottom: 0.5px solid #a16f598e;
+    border-left: 0.5px solid #a16f598e;
+}
+
+.achievements th:first-child,
+.achievements td:first-child {
+    border-left: none
+}
+
+.achievements tr:last-child td {
+    border-bottom: none;
+}
+
+.achievements th:last-child:hover {
+    cursor: pointer;
+    color: #dcdcdc
+}
+
+.achievements th {
+    height: 50px;
+}

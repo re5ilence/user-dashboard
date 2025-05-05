@@ -1,0 +1,26 @@
+header {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ffffff;
+    z-index: 0;
+    height: 70px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+    justify-items: center;
+}
+
+.profile-switcher {
+    display: flex;
+    gap: 30px;
+}
+
+.profile-switcher-label:hover {
+    cursor: pointer;
+    color: #dcdcdc
+}
+
+.profile-switcher-label {
+    padding-top: 10px;
+}
+

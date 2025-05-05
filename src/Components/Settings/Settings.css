@@ -1,0 +1,43 @@
+.settings {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-right: 180px;
+}
+
+.row-settings {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+.settings-left {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+    margin-top: 8px;
+}
+
+.settings-right .button-container {
+    margin-bottom: 30px;
+}
+
+body.day-theme {
+    background-color: #ffffff;
+    color: #090f1b;
+}
+
+header.day-theme {
+    border-bottom: 1px solid #ccc;
+}
+
+footer.day-theme {
+    border-top: 1px solid #ccc !important
+}
+
+.search-input.day-theme {
+    color: #090f1b;
+    background-color: #ffffff;
+}

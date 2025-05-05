@@ -1,0 +1,51 @@
+.search-results {
+    width: 300px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #ccc;
+    background-color: white;
+    list-style: none;
+    text-align: center;
+}
+
+.search-item {
+    padding: 10px;
+    color: black;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+    transition: background-color 0.3s;
+}
+
+.search-item:last-child {
+    border-bottom: none;
+}
+
+.search-item:hover {
+    background-color: #FFA07A;
+}
+
+.no-results {
+    padding: 10px;
+    color: gray;
+}
+
+.user-name {
+    font-weight: bold;
+}
+
+.user-email {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.user-status {
+    font-size: 0.8em;
+}
+
+.user-status.active {
+    color: green;
+}
+
+.user-status.blocked {
+    color: red;
+}
