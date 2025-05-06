@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'; 
 
 import './UserProfile.css';
-import AchievementsTable from '../AchievementsTable/AchievementsTable'
+import AchsTableLogic from '../AchsTableLogic/AchsTableLogic';
 import StatBox from '../StatBox/StatBox'
 import ChartContainer from '../ChartContainer/ChartContainer';
 import useCounterAnimation from '../../Animation/useCounterAnimation';
@@ -45,7 +45,7 @@ export default function UserProfile({ user }) {
                 count={3} />
             <div className="user-profile-items user-profile-items--block4">
                 <h2>Achievements</h2>
-                <AchievementsTable user={user} />
+                <AchsTableLogic user={user} />
             </div>
         </div >
     );
