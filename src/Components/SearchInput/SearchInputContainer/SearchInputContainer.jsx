@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import SearchInput from '../SearchInput/SearchInput';  
-import SearchResults from '../SearchResults/SearchResults'; 
+import SearchInput from '../SearchInput';  
+import SearchResults from '../../SearchResults/SearchResults'; 
 
 export default function SearchInputContainer({ users, onUserSelect }) {
     const [query, setQuery] = useState('');

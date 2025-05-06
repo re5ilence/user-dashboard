@@ -1,4 +1,4 @@
-import SearchInputContainer from '../SearchInputContainer/SearchInputContainer';
+import SearchInputContainer from '../SearchInput/SearchInputContainer/SearchInputContainer';
 import Button from '../Button/Button'
 
 import './header.css';

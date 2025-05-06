@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
-import achievements from '../../data/achievements'
-import AchievementsTable from '../AchievementsTable/AchievementsTable';
+import achievements from '../../../data/achievements'
+import AchievementsTable from '../AchievementsTable'
 
 function isAchieved(user, achievement) {
     return user[achievement.type] === undefined || user[achievement.type] >= achievement.value;

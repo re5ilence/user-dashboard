@@ -1,6 +1,3 @@
-import { useEffect } from "react";
-
-
 export default function Chart({ chartRefs, count }) {
     return (
         <div className="online-time online-time--third_block">

@@ -1,12 +1,12 @@
 import { useEffect, useRef } from 'react'; 
 
 import './UserProfile.css';
-import AchsTableLogic from '../AchsTableLogic/AchsTableLogic';
+import AchsTableLogic from '../AchievementsTable/AchsTableLogic/AchsTableLogic';
 import StatBox from '../StatBox/StatBox'
-import ChartContainer from '../ChartContainer/ChartContainer';
+import ChartContainer from '../Chart/ChartContainer';
 import useCounterAnimation from '../../Animation/useCounterAnimation';
 // import useChartAnimations from '../../Animation/useChartAnimation';
-import AnimateChart from './AnimateChart';
+import AnimateChart from '../../Animation/AnimateChart';
 
 export default function UserProfile({ user }) {
     const hoursRef = useRef(null);
