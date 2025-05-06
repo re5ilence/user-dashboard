@@ -9,6 +9,12 @@ export default function Settings() {
     });
     const [notifications, setNotification] = useState('Yes');
 
+    useEffect(() => {
+        document.body.classList.toggle('day-theme', theme === 'Day');
+        document.body.classList.toggle('night-theme', theme === 'Night');
+        localStorage.setItem('theme', theme);
+    }, [theme]);
+
     const toggleLanguage = () => {
         setLanguage(prevLanguage => (prevLanguage === 'Russian' ? 'English' : 'Russian'));
     };
@@ -21,12 +27,12 @@ export default function Settings() {
         setNotification(prevNotification => (prevNotification === 'Yes' ? 'No' : 'Yes'));
     };
 
-    useEffect(() => {
-        document.body.classList.toggle('day-theme', theme === 'Day');
-        document.body.classList.toggle('night-theme', theme === 'Night');
-        localStorage.setItem('theme', theme);
-      }, [theme]);
-      
+    const settingsButtons = [
+        { onClick: toggleLanguage, label: language },
+        { onClick: toggleTheme, label: theme },
+        { onClick: toggleNotification, label: notifications }
+    ]
+
     return (
         <div className='settings'>
             <div className='row-settings'>
@@ -36,27 +42,13 @@ export default function Settings() {
                     <h2>Notification</h2>
                 </div>
                 <div className="settings-right">
-                    <div className="button-container">
-                        <Button
-                            onClick={toggleLanguage}
-                            className={'btn-settings'}>
-                            <h3>{language}</h3>
-                        </Button>
-                    </div>
-                    <div className="button-container">
-                        <Button
-                            onClick={toggleTheme}
-                            className={'btn-settings'}>
-                            <h3>{theme}</h3>
-                        </Button>
-                    </div>
-                    <div className="button-container">
-                        <Button
-                            onClick={toggleNotification}
-                            className={'btn-settings'}>
-                            <h3>{notifications}</h3>
-                        </Button>
-                    </div>
+                    {settingsButtons.map((item, index) => (
+                        <div className="button-container" key={index}>
+                            <Button onClick={item.onClick} className="btn-settings">
+                                <h3>{item.label}</h3>
+                            </Button>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>

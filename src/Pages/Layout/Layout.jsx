@@ -3,6 +3,7 @@ import Footer from '../../Components/Footer/Footer';
 import Sidebar from '../../Components/Sidebar/Sidebar';
 import UserProfile from '../../Components/UserProfile/UserProfile'
 import Settings from '../../Components/Settings/Settings';
+import Dashboard from '../../Components/Dashboard/Dashboard';
 
 import './layout.css';
 import { useState, useEffect } from 'react';
@@ -33,6 +34,10 @@ export default function Layout({ user, users, onLogout }) {
     setActiveView('profile');
   }
 
+  const handlePathDashboard = () => {
+    setActiveView('dashboard')
+  }
+
   let content;
   switch (activeView) {
     case 'settings':
@@ -40,6 +45,9 @@ export default function Layout({ user, users, onLogout }) {
       break;
     case 'profile':
       content = <UserProfile user={currentUser} />;
+      break;
+    case 'dashboard':
+      content = <Dashboard />;
       break;
   }
 
@@ -49,13 +57,14 @@ export default function Layout({ user, users, onLogout }) {
         user={user}
         users={users}
         onUserSelect={handleUserSelect}
-        currentUser={currentUser} 
-        isProfile={activeView === 'profile'}/>
+        currentUser={currentUser}
+        isProfile={activeView === 'profile'} />
       <main className='layout-body'>
         <Sidebar
           onLogout={handleLogout}
           onSettings={handlePathSettings}
-          onProfile={handlePathProfile} />
+          onProfile={handlePathProfile}
+          onDashboard={handlePathDashboard} />
         {content}
       </main>
       <Footer />
