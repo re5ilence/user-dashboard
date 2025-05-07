@@ -59,3 +59,7 @@ body.night-theme .search-input {
     background-color: #090f1b;
     color: #ffffff;
 }
+
+body.day-theme .btn {
+    box-shadow: 0 0 5px #FFA07A;
+}

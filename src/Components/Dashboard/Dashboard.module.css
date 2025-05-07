@@ -1,0 +1,43 @@
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 300px;
+    padding: 10px;
+}
+
+/* Контейнер для приходящих данных */
+.dashboardTable {
+    height: 70vh;
+    width: 60vw;
+    margin-bottom: 30px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+.post {
+    position: absolute;
+    object-fit: contain;
+    background-color:#FFA07A ;
+}
+
+.btnPagination {
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+}
+
+.spinner {
+    position: absolute;
+    left: 47%;
+    top: 43%;
+}
+
+.active {
+    background-color: #FFA07A;
+}
