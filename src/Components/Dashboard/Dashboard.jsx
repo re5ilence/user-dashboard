@@ -10,14 +10,14 @@ export default function Dashboard() {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        const loadPhotos = async () => {
+        const loadPosts = async () => {
             setLoading(true)
 
-            const res = await fetch(`https://jsonplaceholder.typicode.com/posts?_start=59&_limit=3`);
-            const users = await res.json();
-            setData(users);
+            const res = await fetch(`https://jsonplaceholder.typicode.com/posts?_start=${(page - 1) * 4}&_limit=4`);
+            const posts = await res.json();
+            setData(posts);
         }
-        loadPhotos();
+        loadPosts();
 
         setTimeout(() => {
             setLoading(false);
