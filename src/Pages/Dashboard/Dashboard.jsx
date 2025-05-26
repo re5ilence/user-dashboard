@@ -1,5 +1,5 @@
-import Button from '../Button/Button';
-import Loader from '../Loader/Loader';
+import Button from '../../Components/Button/Button';
+import Loader from '../../Components/Loader/Loader';
 import styles from './Dashboard.module.css';
 
 import { useState, useEffect } from 'react';

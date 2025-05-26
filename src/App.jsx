@@ -1,10 +1,9 @@
 import { useState } from 'react';
 
 import UserSelectPage from './Pages/UserSelectPage/UserSelectPage';
-import Layout from './Pages/Layout/Layout';
+import Layout from './Pages/MainLayout/Layout';
 
 import users from './data/users';
-
 
 export default function App() {
   const [currentUserId, setCurrentUserId] = useState(null);

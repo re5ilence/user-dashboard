@@ -19,16 +19,22 @@
 }
 
 .user-select-item {
-    margin: 20px auto;
+    margin: 15px auto;
     padding: 10px 20px;
     width: 50%;
     cursor: pointer;
     transition: background-color 0.2s;
     list-style: none;
+    border: none;
+    background-color: #090f1b;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .user-select-item:hover {
     background-color: #FFA07A;
 }
+
 
 

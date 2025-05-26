@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import Button from '../Button/Button'
+import Button from '../../Components/Button/Button'
 import './Settings.css'
 import { useTranslation } from 'react-i18next'
 

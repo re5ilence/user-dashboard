@@ -1,9 +1,9 @@
 import { useEffect, useRef } from 'react'; 
 
 import './UserProfile.css';
-import AchsTableLogic from '../AchievementsTable/AchsTableLogic/AchsTableLogic';
-import StatBox from '../StatBox/StatBox'
-import ChartContainer from '../Chart/ChartContainer';
+import AchsTableLogic from '../../Components/AchievementsTable/AchsTableLogic/AchsTableLogic';
+import StatBox from '../../Components/StatBox/StatBox'
+import ChartContainer from '../../Components/Chart/ChartContainer';
 import useCounterAnimation from '../../Animation/useCounterAnimation';
 // import useChartAnimations from '../../Animation/useChartAnimation';
 import AnimateChart from '../../Animation/AnimateChart';
