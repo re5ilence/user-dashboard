@@ -1,10 +1,14 @@
-export default function AnimateChart(element, targetValue, duration = 1500) {
+export default function AnimateChart(
+    element: HTMLElement,
+    targetValue: number,
+    duration: number = 1500
+): void {
     const startTime = performance.now();
     const numberElement = element.querySelector('.chart-number'); 
 
     const scale = 6;
 
-    const animate = (currentTime) => {
+    const animate = (currentTime: number) => {
         const timeElapsed = currentTime - startTime;
         const progress = Math.min(timeElapsed / duration, 1);
         const currentHeight = Math.floor(progress * targetValue * scale);
@@ -13,7 +17,7 @@ export default function AnimateChart(element, targetValue, duration = 1500) {
         element.style.height = `${currentHeight}px`;
 
         if (numberElement) {
-            numberElement.textContent = currentValue;
+            numberElement.textContent = String(currentValue);
         }
 
         if (progress < 1) {
@@ -21,7 +25,7 @@ export default function AnimateChart(element, targetValue, duration = 1500) {
         } else {
             element.style.height = `${targetValue * scale}px`;
             if (numberElement) {
-                numberElement.textContent = targetValue;
+                numberElement.textContent = String(targetValue);
             }
         }
     };

@@ -5,7 +5,7 @@ import './UserProfile.css';
 import AchsTableLogic from '../../Components/AchievementsTable/AchsTableLogic/AchsTableLogic';
 import StatBox from '../../Components/StatBox/StatBox';
 import ChartContainer from '../../Components/Chart/ChartContainer';
-import useCounterAnimation from '../../Animation/useCounterAnimation';
+import useCounterAnimation from '../../Animation/useCounterAnimation.ts';
 import AnimateChart from '../../Animation/AnimateChart';
 
 export default function UserProfile() {

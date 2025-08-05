@@ -1,15 +1,22 @@
-import { useEffect } from "react";
+/* Кастомный хук */
 
-export default function useAnimateChart(element, targetValue, duration = 1500) {
+import { useEffect } from "react";
+import type { RefObject } from "react"
+
+export default function useAnimateChart(
+    element: RefObject<HTMLElement>, 
+    targetValue: number, 
+    duration = 1500 /* уже есть значение по умолчанию */
+): void {
     useEffect(() => {
 
         let cancelled = false;
         const el = element.current;
-        const numberElement = el.querySelector('.chart-number');
+        const numberElement = el?.querySelector('.chart-number'); /* Опциональная цепочка */
         const scale = 6;
         const startTime = performance.now();
 
-        const animate = (currentTime) => {
+        const animate = (currentTime: number) => {
             if (cancelled) return;
 
             const timeElapsed = currentTime - startTime;
@@ -17,10 +24,12 @@ export default function useAnimateChart(element, targetValue, duration = 1500) {
             const currentHeight = Math.floor(progress * targetValue * scale);
             const currentValue = Math.floor(progress * targetValue);
 
-            el.style.height = `${currentHeight}px`;
+            if (el) {  
+                el.style.height = `${currentHeight}px`;
+            }
 
             if (numberElement) {
-                numberElement.textContent = currentValue;
+                numberElement.textContent = String(currentValue);
             }
 
             if (progress < 1) {
@@ -28,7 +37,7 @@ export default function useAnimateChart(element, targetValue, duration = 1500) {
             } else {
                 el.style.height = `${targetValue * scale}px`;
                 if (numberElement) {
-                    numberElement.textContent = targetValue;
+                    numberElement.textContent = String(targetValue);
                 }
             }
         };

@@ -1,13 +1,17 @@
-import { useEffect } from 'react';
+import { useEffect, type RefObject } from 'react';
 
-export default function useCounterAnimation(ref, targetValue, duration = 1500, text = '') {
+export default function useCounterAnimation(
+    ref: RefObject<HTMLElement>, 
+    targetValue:number, 
+    duration = 1500, 
+    text = '') {
     useEffect(() => {
         const element = ref.current;
         if (!element) return;
 
         const startTime = performance.now();
 
-        const animate = (currentTime) => {
+        const animate = (currentTime: number) => {
             const currentDuration = currentTime - startTime;
             const progress = Math.min(currentDuration / duration, 1);
             const currentValue = Math.floor(progress * targetValue);
