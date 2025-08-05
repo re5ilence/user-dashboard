@@ -1,44 +1,18 @@
 {
-  // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
-    // File Layout
-    // "rootDir": "./src",
-    // "outDir": "./dist",
-
-    // Environment Settings
-    // See also https://aka.ms/tsconfig/module
-    "module": "nodenext",
-    "target": "esnext",
-    "types": [],
-    // For nodejs:
-    // "lib": ["esnext"],
-    // "types": ["node"],
-    // and npm install -D @types/node
-
-    // Other Outputs
-    "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true,
-
-    // Stricter Typechecking Options
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-
-    // Style Options
-    // "noImplicitReturns": true,
-    // "noImplicitOverride": true,
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    // "noFallthroughCasesInSwitch": true,
-    // "noPropertyAccessFromIndexSignature": true,
-
-    // Recommended Options
-    "strict": true,
-    "jsx": "react-jsx",
-    "verbatimModuleSyntax": true,
-    "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force",
-    "skipLibCheck": true,
-  }
+    "target": "ESNext",           // Совместимость с современным JS
+    "module": "ESNext",           // Используется Vite/Rollup
+    "moduleResolution": "bundler", // Оптимально для Vite
+    "strict": true,               // Включает все strict-проверки
+    "jsx": "react-jsx",           // Автоматический JSX-рантайм (не нужен импорт React)
+    "esModuleInterop": true,      // Для совместимости с CommonJS
+    "skipLibCheck": true,         // Ускоряет компиляцию
+    "forceConsistentCasingInFileNames": true, // Проверка регистра файлов
+    "baseUrl": "./",              // Для абсолютных путей (опционально)
+    "paths": {                    // Алиасы путей (как в vite.config.ts)
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["src/**/*"],        // Где искать TS-файлы
+  "exclude": ["node_modules"]     // Что игнорировать
 }

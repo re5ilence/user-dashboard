@@ -1,42 +1,43 @@
 import { useState } from 'react'
-
-import achievements from '../../../data/achievements'
 import AchievementsTable from '../AchievementsTable'
+import achievements, { Achievements } from '../../../data/achievements';
+import { User } from '../../../data/users';
 
-function isAchieved(user, achievement) {
-    return user[achievement.type] === undefined || user[achievement.type] >= achievement.value;
-    // console.log(`Checking ${achievement.name}:`, achieved);
-    // return achieved;
+interface AchsTableLogicProps {
+  user: User;
 }
 
-export default function AchsTableLogic({ user }) {
-    const [sortState, setSortState] = useState(0);
+const AchsTableLogic: React.FC<AchsTableLogicProps> = ({ user }) => {
+  const [sortState, setSortState] = useState<0 | 1 | 2>(0);
 
-    const toggleSort = () => {
-        setSortState((prevState) => (prevState + 1) % 3);
-    };
+  const toggleSort = (): void => {
+    setSortState((prevState) => (prevState + 1) % 3 as 0 | 1 | 2);
+  };
 
-    const sortedAchievements = [...achievements].sort((a, b) => {
-        if (sortState === 0) {
-            return 0
-        }
+  const isAchieved = (user: User, achievement: Achievements): boolean => {
+    return (user[achievement.type] as number | undefined ?? 0) >= (achievement.value as number);
+  };
 
-        const aAchieved = isAchieved(user, a);
-        const bAchieved = isAchieved(user, b);
+  const sortedAchievements = [...achievements].sort((a, b) => {
+    if (sortState === 0) {
+      return 0;
+    }
 
-        if (sortState === 1) {
-            return bAchieved - aAchieved;
-        } else {
-            return aAchieved - bAchieved;
-        }
-    });
-    return (
-        <AchievementsTable
-            toggleSort={toggleSort}
-            sortState={sortState}
-            sortedAchievements={sortedAchievements}
-            isAchieved={isAchieved}
-            user={user}
-        />
-    );
-}
+    const aAchieved = Number(isAchieved(user, a));
+    const bAchieved = Number(isAchieved(user, b));
+
+    return sortState === 1 ? bAchieved - aAchieved : aAchieved - bAchieved;
+  });
+
+  return (
+    <AchievementsTable
+      toggleSort={toggleSort}
+      sortState={sortState}
+      sortedAchievements={sortedAchievements}
+      isAchieved={isAchieved}
+      user={user}
+    />
+  );
+};
+
+export default AchsTableLogic;
