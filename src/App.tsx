@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import UserSelectPage from './Pages/UserSelectPage/UserSelectPage';
-import Layout from './Pages/MainLayout/Layout';
+import Layout from './Pages/Layout/Layout';
 
 import users from './data/users';
 import UserProfile from './Pages/UserProfile/UserProfile';
@@ -10,7 +10,7 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import Settings from './Pages/Settings/Settings';
 
 export default function App() {
-  const [userId, setUserId] = useState(null); 
+  const [userId, setUserId] = useState<number | null>(null); 
   const user = users.find(u => u.id === userId);
 
   return (

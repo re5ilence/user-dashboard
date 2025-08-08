@@ -13,6 +13,6 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["src/**/*"],        // Где искать TS-файлы
+  "include": ["src/**/*", "src/Pages/Layout"],        // Где искать TS-файлы
   "exclude": ["node_modules"]     // Что игнорировать
 }

@@ -4,7 +4,16 @@ import Button from '../Button/Button';
 
 import './header.css';
 
-export default function Header({ user, users, onUserSelect, currentUser }) {
+import { User } from '../../data/users'
+
+interface HeaderProps {
+  user: User;
+  users: User[];
+  currentUser: User;
+  onUserSelect: (user: User) => void;
+}
+
+export default function Header({ user, users, onUserSelect, currentUser }: HeaderProps) {
   const location = useLocation();
   const isProfile = location.pathname.includes('/profile');
 

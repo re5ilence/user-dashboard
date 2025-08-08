@@ -7,14 +7,22 @@ import Sidebar from '../../Components/Sidebar/Sidebar';
 
 import './layout.css';
 
-export default function Layout({ user, users, onLogout }) {
+import { User } from '../../data/users'
+
+interface LayoutProps {
+  user: User,
+  users: User[],
+  onLogout: () => void
+}
+
+export default function Layout({ user, users, onLogout }: LayoutProps ) {
   const [currentUser, setCurrentUser] = useState(user);
 
   useEffect(() => {
     document.title = `${currentUser.name}'s dashboard`;
   }, [currentUser.name]);
 
-  const handleUserSelect = (selectedUser) => {
+  const handleUserSelect = (selectedUser: User) => {
     setCurrentUser(selectedUser);
   };
 

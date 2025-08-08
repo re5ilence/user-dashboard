@@ -1,10 +1,16 @@
-import './Button.css'
+import { MouseEvent, ReactNode } from 'react';
+import './Button.css';
 
-export default function Button({ onClick, children, className='' }) {
-    return (
-        <button className={`btn ${className}`} onClick={onClick}>
-            {children}
-        </button>
-    )
+interface ButtonProps {
+  onClick: (event: MouseEvent<HTMLButtonElement>) => void;
+  children: ReactNode;
+  className?: string;
 }
 
+export default function Button({ onClick, children, className = '' }: ButtonProps) {
+  return (
+    <button className={`btn ${className}`} onClick={onClick}>
+      {children}
+    </button>
+  );
+}

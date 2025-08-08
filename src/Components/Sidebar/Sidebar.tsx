@@ -1,7 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import './sidebar.css'; 
 
-export default function Sidebar({ onLogout }) {
+interface SidebarProps {
+  onLogout: () => void;
+}
+
+export default function Sidebar({ onLogout }: SidebarProps) {
   const navigate = useNavigate();
 
   return (

@@ -1,7 +1,11 @@
 import users from "../../data/users";
 import './UserSelectPage.css';
 
-export default function UserSelectPage({ onSelect }) {
+interface UserSelectPagePros {
+    onSelect: (userId: number) => void
+}
+
+export default function UserSelectPage({ onSelect }: UserSelectPagePros) {
 
     return (
         <div className="user-select-page">
