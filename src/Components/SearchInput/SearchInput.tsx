@@ -1,6 +1,14 @@
+import { ChangeEvent } from 'react';
 import './SearchInput.css'
 
-export default function SearchInput ({type, placeholder, value, onChange}) {
+interface SearchInputProps {
+    type: string;
+    placeholder: string;
+    value: string;
+    onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+}
+
+export default function SearchInput ({type, placeholder, value, onChange}: SearchInputProps) {
     return (
         <div>
             <input

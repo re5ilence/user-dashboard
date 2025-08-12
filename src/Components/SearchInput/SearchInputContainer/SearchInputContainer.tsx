@@ -1,13 +1,19 @@
-import { useState } from 'react';
+import { useState, ChangeEvent } from 'react';
 import SearchInput from '../SearchInput';  
-import SearchResults from '../../SearchResults/SearchResults'; 
+import SearchResults from '../../SearchResults/SearchResults';
+import {User} from '../../../data/users' 
 
-export default function SearchInputContainer({ users, onUserSelect }) {
-    const [query, setQuery] = useState('');
-    const [filteredUsers, setFilteredUsers] = useState([]);
+interface SearchInputContainerProps {
+    users: User[];
+    onUserSelect: (user: User) => void
+}
 
-    const handleChange = (e) => {
-        const value = e.target.value;
+export default function SearchInputContainer({ users, onUserSelect }: SearchInputContainerProps ) {
+    const [query, setQuery] = useState<string>('');
+    const [filteredUsers, setFilteredUsers] = useState<User[]>([]);
+
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+        const value = event.target.value;
         setQuery(value);
 
         const filtered = users.filter(user =>
@@ -16,7 +22,7 @@ export default function SearchInputContainer({ users, onUserSelect }) {
         setFilteredUsers(filtered);
     };
 
-    const handleUserSelect = (user) => {
+    const handleUserSelect = (user: User) => {
         onUserSelect(user);  
         setQuery('');         
         setFilteredUsers([]); 

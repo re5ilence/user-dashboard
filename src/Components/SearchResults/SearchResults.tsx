@@ -1,6 +1,14 @@
+import { User } from '@/data/users';
+
 import './SearchResults.css'
 
-export default function SearchResults({ filteredUsers, noResults, onUserSelect }) {
+interface SearchResultsProps {
+    filteredUsers: User[];
+    noResults: (string | boolean);
+    onUserSelect: (user: User) => void
+}
+
+export default function SearchResults({ filteredUsers, noResults, onUserSelect }: SearchResultsProps) {
     return (
         <ul className="search-results">
             {noResults ? (

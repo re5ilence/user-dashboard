@@ -11,13 +11,13 @@ interface AchievementsTableProps {
     user: User;
 }
 
-const AchievementsTable: React.FC<AchievementsTableProps> = ({
+const AchievementsTable = ({
     toggleSort,
     sortState,
     sortedAchievements,
     isAchieved,
     user
-}) => {
+}: AchievementsTableProps) => {
     return (
         <div className="achievements">
             <table>
