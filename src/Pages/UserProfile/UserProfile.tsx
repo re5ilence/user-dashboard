@@ -8,11 +8,13 @@ import ChartContainer from '../../Components/Chart/ChartContainer';
 import useCounterAnimation from '../../Animation/useCounterAnimation';
 import AnimateChart from '../../Animation/AnimateChart';
 
+import { User } from '../../data/users'
+
 export default function UserProfile() {
-  const { currentUser: user } = useOutletContext(); 
-  const hoursRef = useRef(null);
-  const messagesRef = useRef(null);
-  const chartRefs = useRef([null, null, null]);
+  const { currentUser: user } = useOutletContext<{ currentUser: User }>(); 
+  const hoursRef = useRef<HTMLDivElement>(null);
+  const messagesRef = useRef<HTMLDivElement>(null);
+  const chartRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useCounterAnimation(hoursRef, user.hrs, 1500, 'hours');
   useCounterAnimation(messagesRef, user.msg, 1500, 'messages');

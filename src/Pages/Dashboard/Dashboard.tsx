@@ -4,17 +4,24 @@ import styles from './Dashboard.module.css';
 
 import { useState, useEffect } from 'react';
 
+interface Post {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+}
+
 export default function Dashboard() {
-    const [page, setPage] = useState(1)
-    const [data, setData] = useState([])
-    const [loading, setLoading] = useState(true)
+    const [page, setPage] = useState<number>(1)
+    const [data, setData] = useState<Post[]>([])
+    const [loading, setLoading] = useState<boolean>(true)
 
     useEffect(() => {
         const loadPosts = async () => {
             setLoading(true)
 
             const res = await fetch(`https://jsonplaceholder.typicode.com/posts?_start=${(page - 1) * 4}&_limit=4`);
-            const posts = await res.json();
+            const posts: Post[] = await res.json();
             setData(posts);
         }
         loadPosts();

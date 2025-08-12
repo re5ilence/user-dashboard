@@ -1,8 +1,8 @@
 import { useEffect, type RefObject } from 'react';
 
 export default function useCounterAnimation(
-    ref: RefObject<HTMLElement>, 
-    targetValue:number, 
+    ref: RefObject<HTMLElement | null>, 
+    targetValue: number, 
     duration = 1500, 
     text = '') {
     useEffect(() => {

@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+
+    "typeRoots": ["./node_modules/@types"],
     "target": "ESNext",           // Совместимость с современным JS
     "module": "ESNext",           // Используется Vite/Rollup
     "moduleResolution": "bundler", // Оптимально для Vite
@@ -13,6 +15,6 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["src/**/*", "src/Pages/Layout"],        // Где искать TS-файлы
+  "include": ["src/**/*", "global.d.ts"],        // Где искать TS-файлы
   "exclude": ["node_modules"]     // Что игнорировать
 }

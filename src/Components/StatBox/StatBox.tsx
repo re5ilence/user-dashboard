@@ -1,11 +1,16 @@
-import { forwardRef } from 'react'
+import React, { forwardRef, ReactNode } from 'react';
 
-const StatBox = forwardRef(({ className = '', children }, ref) => {
-    return (
-        <h3 className={`online-time ${className}`} ref={ref}>
-            {children}
-        </h3>
-    );
+interface StatBoxProps {
+  className?: string;
+  children?: ReactNode;
+}
+
+const StatBox = forwardRef<HTMLHeadingElement, StatBoxProps>(({ className = '', children }, ref) => {
+  return (
+    <h3 className={`online-time ${className}`} ref={ref}>
+      {children}
+    </h3>
+  );
 });
 
 export default StatBox;
