@@ -32,7 +32,7 @@ export default function Header({ user, users, onUserSelect, currentUser }: Heade
 
           {user.name !== currentUser.name && (
             <div className="profile-switcher">
-              <h3>Now you're looking at {currentUser.name}'s profile</h3>
+              <h4>Now you're looking at {currentUser.name}'s profile</h4>
               <Button onClick={() => onUserSelect(user)}>
                 <h4>Back to my profile</h4>
               </Button>
