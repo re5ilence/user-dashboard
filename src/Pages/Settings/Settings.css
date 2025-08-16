@@ -40,7 +40,7 @@ body.day-theme .chart-number {
 
 body.day-theme .btn-settings {
     box-shadow: 0 0 5px #FFA07A;
-    width: 200px;
+
 }
 
 body.day-theme,
@@ -61,4 +61,8 @@ body.night-theme .search-input {
 
 body.day-theme .btn {
     box-shadow: 0 0 5px #FFA07A;
+}
+
+.btn-settings {
+    width: 200px;
 }
